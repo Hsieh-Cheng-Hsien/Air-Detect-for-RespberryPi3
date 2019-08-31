@@ -15,15 +15,12 @@ Raspberry Pi建置步驟
 10.進入 Interfacing Option 更改I2C為Enabled，按下OK
 11.重新啟動(sudo reboot)
 12.欲使用螢幕(HDMI)請修改config.txt的檔案，其中內容：
-
-# uncomment to force a specific HDMI mode (this will force VGA)
+uncomment to force a specific HDMI mode (this will force VGA)
 hdmi_group=2
 hdmi_mode=16
-
-# uncomment to force a HDMI mode rather than DVI. This can make audio work in
-# DMT (computer monitor) modes
+uncomment to force a HDMI mode rather than DVI. This can make audio work in
+DMT (computer monitor) modes
 hdmi_drive=2
-
 取消上述程式碼
 
 二、更新、新增套件
