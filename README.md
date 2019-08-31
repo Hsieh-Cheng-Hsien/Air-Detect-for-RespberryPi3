@@ -18,10 +18,12 @@ Raspberry Pi建置步驟
 uncomment to force a specific HDMI mode (this will force VGA)
 hdmi_group=2
 hdmi_mode=16
+
+取消下列程式碼：
 uncomment to force a HDMI mode rather than DVI. This can make audio work in
 DMT (computer monitor) modes
 hdmi_drive=2
-取消上述程式碼
+
 
 二、更新、新增套件
 1.sudo apt-get update
