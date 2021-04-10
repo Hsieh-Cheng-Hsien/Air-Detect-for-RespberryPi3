@@ -62,7 +62,7 @@ PiCam：\
 19.cd\
 \
 三、遠端\
-1.下載teamviewer：wget http://download.teamviewer.com/download/linux/version_11x/teamviewer-host_armhf.deb\
+1.下載teamviewer：wget http://download.teamviewer.com/download/linux/version_11x/teamviewer-host_armhf.deb \
 2.sudo apt-get install -f\
 3.安裝teamviewer：sudo dpkg -i teamviewer-host_armhf.deb\
 4.有可能發生無法安裝teamviewer的情況，請先安裝libqt5webkit5：sudo apt-get install libqt5webkit5，有可能還是有問題，請修復安裝：sudo apt --fix-broken install\
