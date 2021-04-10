@@ -1,56 +1,56 @@
 # Air-Detect-for-RespberryPi3
 
-Raspberry Pi建置步驟
-Prepare: Respberry Pi 3, CJMCU-8128
+Raspberry Pi建置步驟\
+Prepare: Respberry Pi 3, CJMCU-8128\
 一、基本設定\
 1.燒錄raspberry-pi-desktop至SD卡\
-2.加入空白ssh的檔案(所有檔案*.*)至SD卡
-3.退出SD卡，插入Raspberry Pi，並替Raspberry Pi接上網路線
-4.掃描區域網路，尋找到Raspberry Pi Foundation裝置，利用此IP遠端進入Raspberry Pi
-5.預設使用者名稱為：pi，預設密碼為：raspberry
-6.進入 sudo raspi-config 設定密碼(Change User Password)、名稱(Hostname)
-7.進入 Localisation Options 更改地區(Change Locale)：zh_TW.UTF-8 UTF-8 按下空白建、OK，選擇 zh_TW.UTF-8，按下OK
-8.進入 Localisation Options 更改時區(Change Timezone)，選擇 Asia，選擇 Taipei，按下OK
-9.進入 Localisation Options 更改wifi(Change Wi-fi Country)，選擇 TW Taiwan，按下OK
-10.進入 Interfacing Option 更改I2C為Enabled，按下OK
-11.重新啟動(sudo reboot)
-12.欲使用螢幕(HDMI)請修改config.txt的檔案，其中內容：
-uncomment to force a specific HDMI mode (this will force VGA)
-hdmi_group=2
-hdmi_mode=16
-
-取消下列程式碼：
-uncomment to force a HDMI mode rather than DVI. This can make audio work in
-DMT (computer monitor) modes
-hdmi_drive=2
-
-
-二、更新、新增套件
-1.sudo apt-get update
-2.sudo apt-get -y dist-upgrade & sudo apt-get upgrade(要按q繼續安裝) & sudo rpi-update
-3.sudo reboot
-4.sudo apt-get install -y i2c-tools
-5.sudo apt-get install python-smbus 在python上使用i2c
-6.進入 sudo apt-get install python-smbus
-7.進入sudo nano /boot/config.txt，取消 #device_tree_param=i2c_arm=on 的註解，若無則直接新增一行，並添加 dtparam=i2c1_baudrate=50000 更改i2c鮑率至 標準鮑率：100KHz 以下(1鮑即指每秒傳輸1個符號)。^x退出，y確定保存，enter以同一檔名保存
-7.進入 sudo nano /boot/cmdline.txt，至文件末尾添加一行 bcm2708.vc_i2c_override=1，^x退出，y確定保存，enter以同一檔名保存
-8.進入 sudo nano /etc/modules-load.d/raspberrypi.conf，至文件末尾添加 i2c-bcm2708 和 i2c-dev，^x退出，y確定保存，enter以同一檔名保存
-9.以 sudo i2cdetect -y 1 偵測 GPIO 上的裝置是否存在，如：
-pi@xxxxxxx:~ $ sudo i2cdetect -y 1
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- --
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-50: -- -- -- -- -- -- -- -- -- -- 5a -- -- -- -- --
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-70: -- -- -- -- -- -- 76 --
-
-10.安裝 pip：sudo apt-get install python-pip（或python3-pip）
-11.安裝 git-core： (1)sudo apt-get update (2)sudo apt-get upgrade (3)sudo apt-get install git-core
-
-PiCam：
+2.加入空白ssh的檔案(所有檔案*.*)至SD卡\
+3.退出SD卡，插入Raspberry Pi，並替Raspberry Pi接上網路線\
+4.掃描區域網路，尋找到Raspberry Pi Foundation裝置，利用此IP遠端進入Raspberry Pi\
+5.預設使用者名稱為：pi，預設密碼為：raspberry\
+6.進入 sudo raspi-config 設定密碼(Change User Password)、名稱(Hostname)\
+7.進入 Localisation Options 更改地區(Change Locale)：zh_TW.UTF-8 UTF-8 按下空白建、OK，選擇 zh_TW.UTF-8，按下OK\
+8.進入 Localisation Options 更改時區(Change Timezone)，選擇 Asia，選擇 Taipei，按下OK\
+9.進入 Localisation Options 更改wifi(Change Wi-fi Country)，選擇 TW Taiwan，按下OK\
+10.進入 Interfacing Option 更改I2C為Enabled，按下OK\
+11.重新啟動(sudo reboot)\
+12.欲使用螢幕(HDMI)請修改config.txt的檔案，其中內容：\
+uncomment to force a specific HDMI mode (this will force VGA)\
+hdmi_group=2\
+hdmi_mode=16\
+\
+取消下列程式碼：\
+uncomment to force a HDMI mode rather than DVI. This can make audio work in\
+DMT (computer monitor) modes\
+hdmi_drive=2\
+\
+\
+二、更新、新增套件\
+1.sudo apt-get update\
+2.sudo apt-get -y dist-upgrade & sudo apt-get upgrade(要按q繼續安裝) & sudo rpi-update\
+3.sudo reboot\
+4.sudo apt-get install -y i2c-tools\
+5.sudo apt-get install python-smbus 在python上使用i2c\
+6.進入 sudo apt-get install python-smbus\
+7.進入sudo nano /boot/config.txt，取消 #device_tree_param=i2c_arm=on 的註解，若無則直接新增一行，並添加 dtparam=i2c1_baudrate=50000 更改i2c鮑率至 標準鮑率：100KHz 以下(1鮑即指每秒傳輸1個符號)。^x退出，y確定保存，enter以同一檔名保存\
+7.進入 sudo nano /boot/cmdline.txt，至文件末尾添加一行 bcm2708.vc_i2c_override=1，^x退出，y確定保存，enter以同一檔名保存\
+8.進入 sudo nano /etc/modules-load.d/raspberrypi.conf，至文件末尾添加 i2c-bcm2708 和 i2c-dev，^x退出，y確定保存，enter以同一檔名保存\
+9.以 sudo i2cdetect -y 1 偵測 GPIO 上的裝置是否存在，如：\
+pi@xxxxxxx:~ $ sudo i2cdetect -y 1\
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f\
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --\
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\
+40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\
+50: -- -- -- -- -- -- -- -- -- -- 5a -- -- -- -- --\
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --\
+70: -- -- -- -- -- -- 76 --\
+\
+10.安裝 pip：sudo apt-get install python-pip（或python3-pip）\
+11.安裝 git-core： (1)sudo apt-get update (2)sudo apt-get upgrade (3)sudo apt-get install git-core\
+\
+PiCam：\
 12.安裝 opencv：sudo apt-get install python-opencv
 13.啟用pi相機：sudo raspi-config，進入 Interfacing Options，啟用 P1/Camera，並且重啟。
 14.安裝 PeachPy  和  confu：(1)sudo pip install --upgrade git+https://github.com/Maratyszcza/PeachPy (2)sudo pip install --upgrade git+https://github.com/Maratyszcza/confu
