@@ -68,7 +68,7 @@ PiCam：\
 4.有可能發生無法安裝teamviewer的情況，請先安裝libqt5webkit5：sudo apt-get install libqt5webkit5，有可能還是有問題，請修復安裝：sudo apt --fix-broken install\
 \
 四、開始執行\
-1.進到github網站(https://github.com/OdinsHat/cjmcu-8128-sensor-breakout)\此網站提供了CJMCU-8128的套件及範例程式。下載壓縮檔，解壓縮後利用FileZilla放入 /home/pi 目錄底下\
+1.進到github網站 https://github.com/OdinsHat/cjmcu-8128-sensor-breakout 此網站提供了CJMCU-8128的套件及範例程式。下載壓縮檔，解壓縮後利用FileZilla放入 /home/pi 目錄底下\
 2.安裝Adafruit套件：(1)pip install Adafruit_CCS811 (2)pip install Adafruit_BME280\
 3.進入範例程式目錄 cd prj/examples，執行.py檔案即可 ex:python cc811.py\
 4.新建的資料請將Adafruit_BME280.py、Adafruit_CCS811.py、SDL_Pi_HDC1000.py，以及自己編寫的程式碼(.py)放在同一個目錄下\
