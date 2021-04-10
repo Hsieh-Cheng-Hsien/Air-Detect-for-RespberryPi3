@@ -2,7 +2,7 @@
 
 Raspberry Pi建置步驟
 Prepare: Respberry Pi 3, CJMCU-8128
-一、基本設定
+一、基本設定\
 1.燒錄raspberry-pi-desktop至SD卡
 2.加入空白ssh的檔案(所有檔案*.*)至SD卡
 3.退出SD卡，插入Raspberry Pi，並替Raspberry Pi接上網路線
