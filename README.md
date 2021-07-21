@@ -53,7 +53,7 @@ pi@xxxxxxx:~ $ sudo i2cdetect -y 1\
 PiCam：\
 12.安裝 opencv：sudo apt-get install python-opencv\
 13.啟用pi相機：sudo raspi-config，進入 Interfacing Options，啟用 P1/Camera，並且重啟。\
-14.安裝 PeachPy  和  confu：(1)sudo pip install --upgrade git+https://github.com/Maratyszcza/PeachPy (2)sudo pip install --upgrade git+https://github.com/Maratyszcza/confu\
+14.安裝 PeachPy  和  confu：(1)sudo pip install --upgrade git+https://github.com/Maratyszcza/PeachPy (2)sudo pip install --upgrade git+https://github.com/Maratyszcza/confu \
 15.安裝忍者：(1) git clone https://github.com/ninja-build/ninja.git (2)cd ninja (3)git checkout release (4)./configure.py --bootstrap (5)export NINJA_PATH=$PWD (6)cd\
 16.安裝修改後的 NNPACK：(1)git clone https://github.com/shizukachan/NNPACK (2)cd NNPACK (3)confu setup (4)python ./configure.py --backend auto (5)$NINJA_PATH/ninja(此步驟可能造成當機，請重作上個步驟的(5)，指定環境變數給NNPACK，請確認GPU可使用記憶體大小不大於64，大於64可能造成當機，若因為部分因素無法調整GUP使用大小，請使用Putty等CUI遠端登入介面，以減少記憶體資源占用。) (6)如果上述步驟成功，使用ls確認是否存在資料 lib (7)測試NNPACK是否正常工作：bin/convolution-inference-smoketest(此步驟如果有FAIL，請注意看錯誤報告，並重新安裝。) (8)將庫和頭文件複製到系統環境：(1)sudo cp -a lib/* /usr/lib/ (2)sudo cp include/nnpack.h /usr/include/ (3)sudo cp deps/pthreadpool/include/pthreadpool.h /usr/include/\
 17.安裝darknet-nnpackcd (yolov3分支)：(1)cd (2)git clone -b yolov3 https://github.com/zxzhaixiang/darknet-nnpack (3)cd darknet-nnpack (4)git checkout yolov3 (4)make\
